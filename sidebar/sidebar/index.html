@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Para colocar fotinho na aba do navegador-->
+	 <link rel="icon" href="img/estetoscopio.png">
+
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="estilo.css" content="width-device-width,initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+
+</head>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
+
+*{
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+
+}
+
+.sidebar{ 
+
+    position: fixed;
+    width: 240px;
+    left: -240px;
+    height: 100%;
+    background: #76a6dd ; /*Essa é a parte que mudo a cor do fundo do sidebar das opções*/
+    transition: all .5s ease;
+
+}
+
+.sidebar header{
+    font-size: 28px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    background: #76a6dd; /*Essa é a parte que mudo a cor do MENU do sidebar*/
+    user-select: none;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.sidebar a{
+    display: block;
+    height: 65px;
+    width: 100%;
+    color: white; /*Parte que mudo a cor das letras do sidebar das opções*/
+    line-height: 65px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(255, 255, 255); /* cor das linhas do sidebar das opções*/
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 5px solid transparent;
+    font-family: 'Open Sans', sans-serif;
+    transition: all .5s ease;
+
+}
+
+a.active,a:hover{
+    border-left: 5px solid #ffffff; /*quando o cursor do mouse passa nas letras muda a barrinha do lado*/
+    color: #b51010; /*quando o cursor do mouse passa nas letras e muda de cor*/
+ 
+}
+
+.sidebar a i{
+    font-size: 23px;
+    margin-right: 16px;
+
+}
+
+.sidebar a span{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+}
+
+#check{
+    display: none;
+
+}
+
+label #btn,label #cancel{
+    position: absolute;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #78aeff;
+    margin: 15px 30px;
+    font-size: 28px;
+    background: #8bbbf9;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    line-height: 45px;
+    transition: all .5s ease;
+
+}
+
+label #cancel{
+    opacity: 0;
+    visibility: hidden;
+    
+}
+
+#check:checked ~ .sidebar{
+    left: 0;
+}
+
+#check:checked ~ label #btn{
+    margin-left: 245px;
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+#check:checked ~ label #cancel { /*botão para fechar o menu*/
+    margin-left: 245px;
+    opacity: 01;
+    visibility: visible;
+    color: white; /*cor do X de fechamento do menu*/
+}
+
+@media(max-width: 860px){.sidebar{
+    height: auto;
+    width: 70px;
+    left: 0;
+    margin: 100px 0;
+}
+
+
+
+header,#btn,#cancel{
+    display: none;
+}
+
+span{
+    position: absolute;
+    margin-left: 23px;
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+.sidebar a{
+    height: 60px;
+    
+}
+
+.sidebar a i{
+    margin-left: -10px;
+
+}
+
+a:hover {
+    width: 200px;
+    background: inherit;
+
+}
+
+.sidebar a:hover span{
+    opacity: 1;
+    visibility: visible;
+
+    }
+}
+
+
+
+h1{
+    text-align: center;
+}
+
+p{
+ text-align: center;
+ color: #76a6dd;
+}
+
+h1{
+    text-align: center;
+    color: #76a6dd;
+}
+
+h2{
+    text-align: center;
+    color: #76a6dd;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  font-family: "Rubik", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+form,
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+  max-width: 1200px;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+  }
+}
+
+.btn {
+  align-items: center;
+  background: #76a6dd;
+  border-radius: 3px;
+  border: 0;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  padding: 15px 45px;
+  transition: 0.2s;
+}
+.btn:hover {
+  background: #76a6dd;
+  transform: translateY(-2px);
+}
+.btn .fas.fa-arrow-right {
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  line-height: 12px;
+  margin: 0 0 0 10px;
+}
+
+.register,
+.login {
+  border-radius: 5px;
+  box-shadow: 0 7px 30px -10px rgba(255, 255, 255, 0.5);
+  height: auto;
+  max-width: 400px;
+  padding: 40px 15px;
+  text-align: center;
+  width: 100%;
+}
+.register .fas,
+.login .fas {
+  color: #76a6dd;
+  font-size: 35px;
+  margin-bottom: 5px;
+}
+.register strong,
+.login strong {
+  color: #76a6dd;
+  display: block;
+  font-size: 40px;
+}
+.register span,
+.login span {
+  color: #76a6dd;
+}
+.register .create-account,
+.login .create-account {
+  border-top: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  padding-top: 30px;
+}
+.register .create-account strong,
+.login .create-account strong {
+  font-size: 16px;
+  margin-left: 5px;
+  text-decoration: underline;
+}
+
+.register,
+.login {
+  background: #fff;
+}
+.register .form,
+.login .form {
+  margin-top: 30px;
+  padding: 0 20px;
+}
+.register .form .form-row,
+.login .form .form-row {
+  position: relative;
+  text-align: left;
+}
+.register .form .form-row .fas,
+.login .form .form-row .fas {
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  top: 30px;
+}
+.register .form .form-row.bottom,
+.login .form .form-row.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.register .form .form-row.bottom .forgot,
+.login .form .form-row.bottom .forgot {
+  color: #4d61fc;
+}
+.register .form .form-row.button-login,
+.login .form .form-row.button-login {
+  margin-top: 50px;
+}
+.register .form .form-row.button-login .fas,
+.login .form .form-row.button-login .fas {
+  position: static;
+}
+.register .form .form-row .form-check input[type=checkbox] + label,
+.login .form .form-row .form-check input[type=checkbox] + label {
+  color: #555;
+  cursor: pointer;
+  display: block;
+}
+.register .form .form-row .form-check input[type=checkbox],
+.login .form .form-row .form-check input[type=checkbox] {
+  display: none;
+}
+.register .form .form-row .form-check input[type=checkbox] + label:before,
+.login .form .form-row .form-check input[type=checkbox] + label:before {
+  border-radius: 3px;
+  border: 1px solid #e2e2e2;
+  color: transparent;
+  content: "✔";
+  display: inline-block;
+  height: 15px;
+  margin-right: 5px;
+  transition: 0.2s;
+  vertical-align: bottom;
+  width: 15px;
+  line-height: 16px;
+  font-size: 12px;
+  text-align: center;
+}
+.register .form .form-row .form-check input[type=checkbox] + label:active:before,
+.login .form .form-row .form-check input[type=checkbox] + label:active:before {
+  transform: scale(1.1);
+}
+.register .form .form-row .form-check input[type=checkbox]:checked + label:before,
+.login .form .form-row .form-check input[type=checkbox]:checked + label:before {
+  background-color: #4d61fc;
+  border-color: #4d61fc;
+  color: #fff;
+}
+.register .form .form-label,
+.login .form .form-label {
+  color: #555;
+  font-size: 12px;
+}
+.register .form-password,
+.register .form-text,
+.login .form-password,
+.login .form-text {
+  border-radius: 2px;
+  border: 0;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 0 40px 0 10px;
+  width: 100%;
+  background: #f1f1f1 no-repeat;
+  transition: 100ms all linear 0s;
+  background-image: linear-gradient(109.6deg, #cb1212 11.2%, #cb1212 91.2%);
+  background-size: 0 2px, 100% 1px;
+  background-position: 50% 100%, 50% 100%;
+  transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+.register .form-password:focus,
+.register .form-text:focus,
+.login .form-password:focus,
+.login .form-text:focus {
+  background-size: 100% 2px, 100% 1px;
+  outline: none;
+}
+
+.register {
+  transform: scale(1.01);
+  background-image: linear-gradient(109.6deg, #76a6dd 11.2%, #6495ED 91.2%);
+}
+.register .fas,
+.register strong {
+  color: #fff;
+}
+.register .form .form-label {
+  color: #fff;
+}
+.register .form .form-row .fas {
+  color: #4d61fc;
+}
+.register .form .form-row .button-login {
+  margin-top: 20px;
+}
+.register .btn-login {
+  background: #fff;
+  color: #76a6dd;
+}
+.register .btn-login .fas.fa-arrow-right {
+  color: #76a6dd;
+}
+.register .btn-login:hover {
+  background: #d5d7de;
+}
+.register .create-account {
+  color: #fff;
+}
+.register .social-media {
+  color: #fff;
+  font-size: 20px;
+  margin-top: 10px;
+}
+.register .social-media .fab {
+  margin: 0 3px;
+}
+
+
+</style>
+
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+            <i class="fas fa-times" id="cancel"></i>
+        </label> 
+            <div class="sidebar">
+                <header></header>
+                <a class="navbar-brand" href="#"><img src="img/logo1.png"  alt="" width="50" height="50"></a>
+                <a href="#" class="active">
+                    <i class="fas fa-qrcode"></i>
+                    <span>Painel</span>
+
+                </a>
+
+                <a href="#">
+                    <i class="fas fa-link"></i>
+                    <span>Links</span>
+                </a>
+
+                <a href="#">
+                    <i class="fas fa-stream"></i>
+                    <span>Visão Geral</span>
+                </a>
+
+                <a href="#">
+                    <i class="fas fa-calendar"></i>
+                    <span>Eventos</span>
+                </a>
+
+                <a href="#">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Sobre</span>
+                </a>
+
+                <a href="#">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Serviços</span>
+                </a>
+
+                <a href="#">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contato</span>
+                </a>
+            </div>
+
+             <!-- 
+Front-End Design (pure css)
+Ui Design
+www.cupcom.com.br
+-->
+
+<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
+
+<main>
+  <section class="container">
+    <!-- login -->
+    <div class="login">
+
+      <i class="fas fa-sign-in-alt"></i>
+      <strong>Bem-vindo(a)!</strong>
+      
+
+      <form>
+        <fieldset>
+          <div class="form">
+            <div class="form-row">
+              <i class="fas fa-user"></i>
+
+
+    <!-- register -->
+    <div class="register">
+      <i class="fas fa-user-circle"></i>
+      <strong>Criar conta!</strong>
+      <form>
+        <fieldset>
+          <div class="form">
+            <div class="form-row">
+              <i class="fas fa-user"></i>
+              <label class="form-label" for="input" >Nome</label>
+              <input type="text" class="form-text" placeholder="Digite seu nome">
+            </div>
+            <div class="form-row">
+              <i class="fas fa-envelope"></i>
+              <label class="form-label" for="input">E-mail</label>
+              <input type="text" class="form-text" placeholder="Digite seu e-mail
+              ">
+            </div>
+            <div class="form-row">
+              <i class="fas fa-lock"></i>
+              <label class="form-label" for="input">Senha</label>
+              <input type="text" class="form-text" placeholder="Insira a senha">
+            </div>
+            <div class="form-row button-login">
+              <button class="btn btn-login">Criar <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+</main>
+
+   <div style="display: block; margin: 0 auto; text-align: center; margin-top: 50px">
+      <script src="https://apis.google.com/js/platform.js"></script>
+
+   
+    </div>
+
+            </main>
+
+
+    <body>
+
+      <style>
+        body {
+          font-family: Arial, Arial, Helvetica, sans-serif;
+          
+        }
+        table {
+          border-collapse: collapse;
+          margin: auto;
+          
+         
+        }
+        caption {
+          font-size: 2.2em;
+          font-weight: bolder;
+          padding: 20px;
+          color: #76a6dd;
+        }
+
+        th, td {
+          border: 1px solid black;
+          padding: 10px;
+
+        }
+
+        tr:nth-child(even) {
+          background-color:#76a6dd;
+        }
+
+        div#container {
+         
+          overflow-x: auto;
+
+        }
+
+
+
+      </style>
+
+      <div id="container">
+      <table>
+        <caption>Lista de Clientes</caption>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+        </tr>
+      </thead>
+      
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>David</td>
+          <td>999-999-999-01</td>
+          <td>4002-8922</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Ruan</td>
+          <td>999-999-999-03</td>
+          <td>4002-8922</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>Cauã</td>
+          <td>999-999-999-05</td>
+          <td>4002-8922</td>
+        </tr>
+
+
+        <tr>
+          <td>4</td>
+          <td>Fernanda</td>
+          <td>999-999-999-07</td>
+          <td>4002-8922</td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td>Hosana</td>
+          <td>999-999-999-09</td>
+          <td>4002-8922</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      
+    
+
+
+    </body>
+</html>
